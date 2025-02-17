@@ -1,0 +1,33 @@
+// Función para determinar el signo zodiacal function obtenerSignoZodiacal(dia, mes) { var signo = '';
+ if ((mes == 3 && dia >= 21) || (mes == 4 && dia <= 19)) { signo = 'Aries';
+ } else if ((mes == 4 && dia >= 20) || (mes == 5 && dia <= 20)) { signo = 'Tauro';
+ } else if ((mes == 5 && dia >= 21) || (mes == 6 && dia <= 20)) { signo = 'Géminis';
+ } else if ((mes == 6 && dia >= 21) || (mes == 7 && dia <= 22)) { signo = 'Cáncer';  
+ } else if ((mes == 7 && dia >= 23) || (mes == 8 && dia <= 22)) { signo = 'Leo';
+ } else if ((mes == 8 && dia >= 23) || (mes == 9 && dia <= 22)) { signo = 'Virgo';
+ } else if ((mes == 9 && dia >= 23) || (mes == 10 && dia <= 22)) { signo = 'Libra'; 
+ } else if ((mes == 10 && dia >= 23) || (mes == 11 && dia <= 21)) { signo = 'Escorpio';                                                                 
+ } else if ((mes == 11 && dia >= 22) || (mes == 12 && dia <= 21)) { signo = 'Sagitario'; 
+ } else if ((mes == 12 && dia >= 22) || (mes == 1 && dia <= 19)) { signo = 'Capricornio';  
+ } else if ((mes == 1 && dia >= 20) || (mes == 2 && dia <= 18)) { signo = 'Acuario';
+ } else if ((mes == 2 && dia >= 19) || (mes == 3 && dia <= 20)) { signo = 'Piscis';
+ } return signo; 
+'fin'
+} // Solicitar al usuario su fecha de nacimiento var fechaNacimiento 
+  = prompt('Introduce tu fecha de nacimiento en formato DD/MM (por ejemplo, 15/04):'); 
+// Validar el formato de la fecha ingresada
+ if (fechaNacimiento) {
+  var partes = fechaNacimiento.split('/');
+   if (partes.length === 2) {
+      var dia = parseInt(partes[0], 10);
+      var mes = parseInt(partes[1], 10);
+     // Verificar que el día y el mes sean válidos
+      if (!isNaN(dia) && !isNaN(mes) && dia > 0 && dia <= 31 && mes > 0 && mes <= 12) {
+         var signo = obtenerSignoZodiacal(dia, mes);
+         alert('Tu signo zodiacal es: ' + signo);
+        } else {
+           alert('Fecha no válida. Asegúrate de que el día esté entre 1 y 31 y el mes entre 1 y 12.'); }
+      } else {
+         alert('Formato incorrecto. Por favor, usa el formato DD/MM.'); } 
+   } else {
+     alert('No se ingresó ninguna fecha.'); }
